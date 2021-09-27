@@ -40,17 +40,17 @@ class LoadModel:
         model = Model(inputs = conv_base.input, outputs = conv_base.get_layer('avg_pool').output)
         return model
     @staticmethod
-    def _VGG16(self):
+    def _VGG16():
         conv_base = VGG16(weights='imagenet', input_tensor=Input(shape=(224,224,3)))
         model = Model(inputs = conv_base.input, outputs = conv_base.get_layer('flatten').output)
         return model
     @staticmethod
-    def _VGG19(self):
+    def _VGG19():
         conv_base = VGG19(weights='imagenet', input_tensor=Input(shape=(224,224,3)))
         model = Model(inputs = conv_base.input, outputs = conv_base.get_layer('flatten').output)
         return model
     @staticmethod
-    def _Xception(self):
+    def _Xception():
         conv_base = Xception(weights='imagenet', input_tensor=Input(shape=(299,299,3)))
         model = Model(inputs = conv_base.input, outputs = conv_base.get_layer('avg_pool').output)
         return model
