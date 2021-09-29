@@ -90,7 +90,7 @@ class CLS:
     def __init__(self, fX, Y):
         self.fX = fX
         self.Y = Y
-    def SVMClassifer(self, param_tuning): # Argument metric means metric of fine-tuning step by GridSearch
+    def SVMClassifer(self, param_tuning): 
         # Parameter besed on this link:
         # https://www.geeksforgeeks.org/svm-hyperparameter-tuning-using-gridsearchcv-ml/
         # For more info: https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html
@@ -99,8 +99,8 @@ class CLS:
         if param_tuning :
             tic = time()
             print("find the best parameters ...")
-            params = {'C': [0.1, 1, 10, 100, 1000], 
-                'gamma': [1, 0.1, 0.01, 0.001, 0.0001],
+            params = {'C': [0.1, 1, 10, 100], 
+                'gamma': [1, 0.1, 0.01, 0.001],
                 'kernel': ['linear','rbf']} 
             grid = GridSearchCV(cls, params, cv=10, scoring='f1')
             grid.fit(self.fX, self.Y)
@@ -115,7 +115,7 @@ class CLS:
             print("Done")
             return cls
 
-    def LRClassifer(self, param_tuning): # Argument metric means metric of fine-tuning step by GridSearch 
+    def LRClassifer(self, param_tuning):  
         # Parameter besed on this link:
         # https://towardsdatascience.com/logistic-regression-model-tuning-with-scikit-learn-part-1-425142e01af5
         # For more info: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
