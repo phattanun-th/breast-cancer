@@ -27,7 +27,7 @@ def extractFeature(X, conv_base):
         img = np.expand_dims(img, axis=0)
         features.append(conv_base.predict(img)[0])
     toc = time()   
-    print(f"Time in process: {toc-tic:.2f} seconds\n")
+    print(f"Process time: {toc-tic:.2f} seconds\n")
     return np.array(features)
 
 
@@ -82,7 +82,7 @@ class CancerClass_Process:
         Y = Encoder.fit_transform(Y)
         # Y.reshape((-1,1)) to reshpe from (n,) to (n,1)
         toc = time()
-        print(f"Time in process: {toc-tic:.2f} seconds\n")
+        print(f"Process time: {toc-tic:.2f} seconds\n")
         del self.filename
         return X, Y
 
@@ -107,7 +107,7 @@ class CLS:
             print(f"Best parameters : {grid.best_params_}")
             print(f"Best F1-score = {grid.best_score_:.3f}")
             toc = time()
-            print(f"Time in process: {toc-tic:.2f} seconds\n")
+            print(f"Process time: {toc-tic:.2f} seconds\n")
             self.bestParams = grid.best_params_
             return grid
         else:
@@ -133,7 +133,7 @@ class CLS:
             print(f"Best parameters : {grid.best_params_}")
             print(f"Best F1-score = {grid.best_score_:.3f}")
             toc = time()
-            print(f"Time in process: {toc-tic:.2f} seconds\n")
+            print(f"Process time: {toc-tic:.2f} seconds\n")
             self.bestParams = grid.best_params_
             return grid
         else:
